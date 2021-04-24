@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @State private var showingAlert = false
-    @State private var darkMode = false
+    @State var darkMode = false
     @State private var accentColor = Color.black
     
     var categories: [String] = ["World", "US", "Politics", "Health", "Business", "Sports", "Entertainment"]
@@ -83,11 +83,22 @@ struct MainView: View {
         let window = UIApplication.shared.windows.first
         if(darkMode) {
             window?.overrideUserInterfaceStyle = .dark
-            window?.tintColor = UIColor(.white)
+            if(accentColor == Color.black){
+                window?.tintColor = UIColor(.white)
+            }
+            else {
+                window?.tintColor = UIColor(accentColor)
+            }
         }
         else {
             window?.overrideUserInterfaceStyle = .light
-            window?.tintColor = UIColor(.black)
+            if(accentColor == Color.white){
+                window?.tintColor = UIColor(.black)
+            }
+            else {
+                window?.tintColor = UIColor(accentColor)
+            }
+                
         }
     }
 }

@@ -21,7 +21,7 @@ struct LikeButton : View {
                 .animation(.linear)
             
             Image(systemName: "heart")
-                .foregroundColor(.black)
+                .foregroundColor(.accentColor)
             
             CirclesView(radius: 35, speed: 0.1, scale: 0.7, isPressed: isPressed)
                 .opacity(self.opacity)
